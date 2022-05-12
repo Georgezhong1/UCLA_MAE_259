@@ -1,14 +1,14 @@
 clc; clear; close all;
-% Global Variable
+%% Global Variable
 N = 21;
 dt = 1e-2;  % second
-totalTime = 10;
+totalTime = 50;
 N_steps = round(totalTime / dt);
 
 % Simulation
 [all_yq, all_yv] = P2_simulation(N, dt, totalTime); % simulation
 figure(1);
-for i = 1:1:length(all_yq)
+for i = 1:10:length(all_yq)
     plot(all_yq(1:2:end,i), all_yq(2:2:end,i), 'ro-');
     axis equal
     grid on;
@@ -48,6 +48,8 @@ grid on;
 %% Q3: terminal velocity vs. the number of nodes
 num_Node = 20;
 dt = 1e-2;
+totalTime = 10;
+N_steps = round(totalTime / dt);
 all_yq_c_n = cell(num_Node,1);
 all_yv_c_n = cell(num_Node,1);
 
@@ -75,7 +77,7 @@ title('Terminal Velocity vs. Number of Nodes')
 grid on;
 
 %% Q3: terminal velocity vs. Step_size
-num_step = 4;
+num_step = 3;
 N = 21;
 all_yq_c_s = cell(num_step,1);
 all_yv_c_s = cell(num_step,1);
